@@ -1,0 +1,74 @@
+========================================
+  TourneyBase — Project Status
+========================================
+
+Project: TourneyBase
+Description: A web-based tournament platform for gaming, sports, and more.
+Tech Stack: Next.js 16 + TypeScript + Tailwind CSS 4
+Location: /mnt/c/Users/FlorisPrins/ClaudeWeb/tourneybase
+
+========================================
+  COMPLETED FEATURES
+========================================
+
+[Step 1] Project Setup & Landing Page — 2026-04-08
+  - Initialized Next.js project with TypeScript and Tailwind CSS
+  - Dark theme with indigo/purple accent colors
+  - Navbar with logo, "Log in" and "Sign up" buttons
+  - Hero section with gradient text, glow effect, and two CTA buttons
+  - 6 feature cards: Create Tournaments, Join & Compete, Leaderboards,
+    Prizes & Rewards, Online & IRL, Full Customization
+  - Call-to-action section ("Ready to compete?")
+  - Footer with branding
+  - Files: src/app/page.tsx, src/app/layout.tsx, src/app/globals.css
+
+[Step 2] Authentication with Supabase — 2026-04-08
+  - Supabase client setup (browser + server + middleware helpers)
+  - Next.js middleware for automatic session refresh
+  - Login page (/login) with email/password
+  - Signup page (/signup) with email/password + confirmation
+  - Auth callback route (/auth/callback) for email confirmations
+  - Navbar shows user email + logout when authenticated
+  - CTA buttons ("Get Started", "Create Your First Tournament") link to /signup
+  - Files: src/lib/supabase/client.ts, server.ts, middleware.ts,
+    src/middleware.ts, src/app/login/page.tsx, src/app/signup/page.tsx,
+    src/app/auth/callback/route.ts, src/components/Navbar.tsx
+
+========================================
+  PLANNED FEATURES (from Idea.txt)
+========================================
+
+[x] Authentication (sign up, log in, user accounts)
+[ ] User profiles (username, display name, location, favorite activities, theme)
+[ ] Tournament creation (category, activity, difficulty, prize, online/IRL, location, language)
+[ ] Tournament browsing with filters (participants, price pool, difficulty, category, online/IRL, location, prize type)
+[ ] Tournament joining
+[ ] Tournament settings & management
+[ ] Leaderboards with categories
+[ ] Difficulty levels for different skill levels
+[ ] Client settings (theme, preferences, search filters)
+
+========================================
+  PROJECT STRUCTURE
+========================================
+
+src/
+  lib/
+    supabase/
+      client.ts      — Supabase browser client
+      server.ts      — Supabase server client (for Server Components/Actions)
+      middleware.ts   — Supabase middleware session helper
+  components/
+    Navbar.tsx       — Navbar with auth state (login/signup or user/logout)
+  app/
+    globals.css      — Global styles, CSS variables, dark theme
+    layout.tsx       — Root layout, fonts, metadata
+    page.tsx         — Landing page (hero, features, CTA, footer)
+    login/
+      page.tsx       — Login page (email/password)
+    signup/
+      page.tsx       — Signup page (email/password + confirmation)
+    auth/
+      callback/
+        route.ts     — Auth callback handler (email confirmation)
+  middleware.ts      — Next.js middleware (session refresh on all routes)
